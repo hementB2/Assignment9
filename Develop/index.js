@@ -1,111 +1,56 @@
-const inquirer = require("inquirer");
-const path = require('path');
-const fs = require('fs')
-const generateMarkdown = require('./utils/generateMarkdown.js')
+const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Include packages needed for this application
-
-
-const questions = [
-    {
-        type: 'input',
-        name: 'title',
-        message: 'What is the title of your project?'
-
-    },
-    {
-        type: 'input',
-        name: 'description',
-        message: 'Please write a short description of your project here:'
-
-    },
-    {
-        type: 'input',
-        name: 'installation',
-        message: 'How is your software installed?'
-    },
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'How is your software used?'
-    },
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'How is your software used?'
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: "What kind of license does your project have?",
-        choices: ['MIT', 'Apache', 'GPL']
-    },
-    {
-        type: 'input',
-        name: 'contributions',
-        message: 'Where can people contribute to this project?'
-    },
-    {
-        type: 'input',
-        name: 'test',
-        message: 'How can a user test your software?'
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is your GitHub user name?'
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email address?'
-    },
-
-];
-
-
-
-// TODO: Create a function to write README file
-function writeToFile(input) {
-    var readMeText = `# ${input.title}
-##Table of Contents 
-[Description](#description)
-[Installation](#installation)
-[Usage](#usage)
-[License](#license)
-[Contributing](#contributing)
-[Testing](#testing)
-[Questions](#questions)
-
-## Description 
-${input.description}
-## Installation 
-${input.installation}
-## Usage
-${input.usage}
-## License
-${input.license}
-## Contributing
-${input.contributions}
-## Testing
-${input.test}
-## Questions 
-(${input.github})
-${input.email}`
-
-    console.log(readMeText)
-
+// Function to prompt the user for information about the project
+async function promptUser() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of your project?'
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Provide a description of your project:'
+        },
+        // Add more prompts for other sections of the README file (installation, usage, etc.)
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Choose a license for your project:',
+            choices: ['MIT', 'Apache', 'GPL', 'None']
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter your GitHub username:'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address:'
+        }
+    ]);
 }
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions)
-        .then((answers) => {
-            writeToFile(answers)
+const fs = require('fs');
 
-        })
-
+// Function to initialize the application
+async function init() {
+    try {
+        // Prompt user for information
+        const userResponses = await promptUser();
+        // Generate markdown content based on user responses
+        const markdown = generateMarkdown(userResponses);
+        // Write markdown content to README.md file
+        fs.writeFileSync('README.md', markdown);
+        console.log('README.md generated successfully!');
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
-// Function call to initialize app
+// Call init to start the application
 init();
+
