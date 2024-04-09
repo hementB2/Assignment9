@@ -17,47 +17,34 @@ When creating an open source project on GitHub, it’s important to have a high-
 
 ## Installation
 
-```bash
 npm install
-Usage
-bash
-Copy code
+
+## Usage
 node index.js
+
 Follow the prompts to enter information about your project.
 
-License
+## License
 This project is licensed under the MIT License.
 
-Contributing
+## Contributing
 Contributions are welcome. Please submit a pull request.
 
-Tests
-bash
-Copy code
+## Tests
 npm test
-Questions
+
+## Questions
+
 If you have any questions, please feel free to contact me:
-
-GitHub: Your GitHub Username
-Email: your-email@example.com
-Walkthrough Video
-You can watch a walkthrough video demonstrating the functionality of the README generator here.
-
-Screenshots
+GitHub: hementb2
+Email: hement53@outlook.com
 
 
-javascript
-Copy code
+## Walkthrough Video
+You can watch a walkthrough video demonstrating the functionality of the README generator  here -https://drive.google.com/file/d/1UhcwNfMinJiDLcKJFAi-NsWaSu1KVTXZ/view?pli=1
 
-Replace the placeholders with the appropriate content:
-- Replace `Your GitHub Username` with your actual GitHub username.
-- Replace `your-email@example.com` with your actual email address.
-- Replace `link-to-your-youtube-video` with the link to your YouTube video demonstrating the functionality of the README generator.
-- Replace `screenshot1.png` and `screenshot2.png` with the file names of your screenshots.
+## Screenshots
 
-This README structure includes sections for installation, usage, license, contributing, tests, and questions, as well as sections for the walkthrough video and screenshots. You can customize it further to fit your project's specific needs.
-
-
-
-
-
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
