@@ -18,11 +18,12 @@ ${data.description}
 
 ## Installation
 
-// Add installation instructions here
+Run "npm i" in Terminal for initializing a new Node.js Project
+Run "npm install inquirer" for installing the Inquirer package
 
 ## Usage
 
-// Add usage information here
+To preview and Generate a Readme.md
 
 ## License
 
@@ -30,11 +31,13 @@ This project is licensed under the ${data.license} License.
 
 ## Contributing
 
-// Add contribution guidelines here
+User hementb2 is contributing the skills for Readme generator project
 
 ## Tests
 
-// Add test instructions here
+
+Run "node index.js in terminal to generate readme.
+
 
 ## Questions
 
